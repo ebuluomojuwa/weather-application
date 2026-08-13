@@ -20,6 +20,7 @@ import { Header } from './components/Header';
 import { WeatherCanvasSimulation } from './components/WeatherCanvasSimulation';
 import { WeatherAlertsBanner } from './components/WeatherAlertsBanner';
 import { CurrentWeatherCard } from './components/CurrentWeatherCard';
+import { VisualWeatherDisplay } from './components/VisualWeatherDisplay';
 import { HourlyForecast } from './components/HourlyForecast';
 import { DailyForecast } from './components/DailyForecast';
 import { WeatherMapSection } from './components/WeatherMapSection';
@@ -263,6 +264,13 @@ export default function App() {
             </div>
           ) : weatherData ? (
             <>
+              {/* Animated Visual Weather Display (Pouring Rain & Moving Sun Images) */}
+              <VisualWeatherDisplay
+                current={weatherData.current}
+                activeSimulation={activeSimulation}
+                themeMode={themeMode}
+              />
+
               {/* Feature 2: Current Weather Dashboard */}
               <CurrentWeatherCard
                 current={weatherData.current}

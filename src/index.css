@@ -1,1 +1,76 @@
 @import "tailwindcss";
+
+@keyframes rainDrop {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(800px); }
+}
+
+@keyframes rainSlant {
+  0% { transform: translateY(-120px) translateX(-40px); }
+  100% { transform: translateY(800px) translateX(120px); }
+}
+
+@keyframes sunMoveGentle {
+  0% { transform: translate(0px, 0px) scale(1.02); }
+  25% { transform: translate(25px, -15px) scale(1.05); }
+  50% { transform: translate(45px, 10px) scale(1.03); }
+  75% { transform: translate(20px, 20px) scale(1.06); }
+  100% { transform: translate(0px, 0px) scale(1.02); }
+}
+
+@keyframes sunMoveDynamic {
+  0% { transform: translate(-20px, 10px) scale(1.05); }
+  50% { transform: translate(50px, -25px) scale(1.08); }
+  100% { transform: translate(-20px, 10px) scale(1.05); }
+}
+
+@keyframes spinUltraSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sunBeamSweep {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-rain-fast {
+  animation: rainDrop 0.4s linear infinite;
+}
+
+.animate-rain-normal {
+  animation: rainDrop 0.8s linear infinite;
+}
+
+.animate-rain-slant {
+  animation: rainSlant 0.7s linear infinite;
+}
+
+.animate-rain-heavy-slant {
+  animation: rainSlant 0.35s linear infinite;
+}
+
+.animate-sun-move-gentle {
+  animation: sunMoveGentle 14s ease-in-out infinite;
+}
+
+.animate-sun-move-fast {
+  animation: sunMoveDynamic 7s ease-in-out infinite;
+}
+
+.animate-spin-ultra-slow {
+  animation: spinUltraSlow 30s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spinUltraSlow 15s linear infinite;
+}
+
+.animate-sun-beam {
+  animation: sunBeamSweep 5s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: sunBeamSweep 4s ease-in-out infinite;
+}
+
