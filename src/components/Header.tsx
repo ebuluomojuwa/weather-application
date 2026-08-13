@@ -153,11 +153,27 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-1.5 shrink-0">
+            {currentLocation && (
+              <button
+                id="save-favorite-mobile-btn"
+                onClick={() => onToggleFavorite(currentLocation)}
+                className={`min-h-[44px] min-w-[44px] p-2.5 rounded-xl border transition-all flex items-center justify-center ${
+                  isCurrentFavorite
+                    ? 'bg-amber-500/20 border-amber-500/40 text-amber-500 shadow-md'
+                    : isLight
+                    ? 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
+                    : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
+                }`}
+                title={isCurrentFavorite ? 'Saved in Favorites' : 'Save Location'}
+              >
+                <Bookmark className={`w-4 h-4 ${isCurrentFavorite ? 'fill-amber-400 text-amber-500' : ''}`} />
+              </button>
+            )}
             <button
               id="theme-toggle-mobile-btn"
               onClick={onToggleTheme}
-              className={`p-2 rounded-xl text-xs font-semibold border transition-all ${
+              className={`min-h-[44px] min-w-[44px] p-2.5 rounded-xl text-xs font-semibold border transition-all flex items-center justify-center ${
                 isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-slate-800 text-slate-200 border-slate-700'
               }`}
               title="Toggle Theme Mode"
@@ -165,8 +181,9 @@ export const Header: React.FC<HeaderProps> = ({
               {isLight ? <Moon className="w-4 h-4 text-indigo-600" /> : <Sun className="w-4 h-4 text-amber-400" />}
             </button>
             <button
+              id="unit-toggle-mobile-btn"
               onClick={onToggleUnit}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+              className={`min-h-[44px] min-w-[44px] px-3 py-2 rounded-xl text-xs font-bold border transition-all flex items-center justify-center ${
                 isLight ? 'bg-slate-100 text-slate-800 border-slate-200' : 'bg-slate-800 text-white border-slate-700'
               }`}
               title="Toggle Temperature Unit"
@@ -174,8 +191,9 @@ export const Header: React.FC<HeaderProps> = ({
               °{unit}
             </button>
             <button
+              id="open-simulation-mobile-btn"
               onClick={onOpenSimulationModal}
-              className="p-2 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-500 text-xs font-medium backdrop-blur-md transition-all flex items-center gap-1"
+              className="min-h-[44px] min-w-[44px] p-2.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-500 text-xs font-medium backdrop-blur-md transition-all flex items-center justify-center"
               title="Simulate Weather"
             >
               <Sparkles className="w-4 h-4" />
